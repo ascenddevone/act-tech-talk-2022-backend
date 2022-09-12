@@ -20,21 +20,9 @@
     </parent>
 
     <properties>
-        <httpcomponents.version>4.5.2</httpcomponents.version>
-        <org.bouncycastle>1.51</org.bouncycastle>
-        <jacksonmapper.version>1.9.13</jacksonmapper.version>
-        <jacoco.version>0.8.5</jacoco.version>
-        <jacoco.resultfile>target/jacoco.exec</jacoco.resultfile>
-        <gracefulshutdown-spring-boot-starter.version>2.1.0</gracefulshutdown-spring-boot-starter.version>
-        <spring-cloud.version>2.1.4.RELEASE</spring-cloud.version>
         <spring-boot.version>2.1.10.RELEASE</spring-boot.version>
-        <httpcomponents.version>4.5.3</httpcomponents.version>
-        <guava.version>23.0</guava.version>
         <exp4j.version>0.4.8</exp4j.version>
         <mockito.version>3.5.10</mockito.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <jacoco.maven.plugin.version>0.8.2</jacoco.maven.plugin.version>
-        <ami.auditlog.version>1.2.0</ami.auditlog.version>
     </properties>
 
     <dependencies>
