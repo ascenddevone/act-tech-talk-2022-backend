@@ -14,6 +14,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Description;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
@@ -31,6 +32,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collector;
@@ -46,6 +48,11 @@ public class AttenderController {
 
     private final ResponseFactory responseFactory;
 
+    @Description("get API version")
+    @GetMapping(value = "/")
+    public ResponseEntity<?> version() {
+        return ResponseEntity.status(HttpStatus.OK).body(Instant.now() + ": Ascend Tech talk 2022");
+    }
 
     @Description("Adds new an attender")
     @PostMapping(
