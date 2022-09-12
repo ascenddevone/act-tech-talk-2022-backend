@@ -6,11 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetAllAttenderResponse {
-    @JsonProperty("field_name")
-    private String fieldName;
+    @JsonProperty("attenders")
+    private List<AttenderResponse> attenders;
 }

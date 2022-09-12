@@ -32,11 +32,22 @@ public class AttenderService {
     }
 
     public List<AttenderEntity> getAllAttenders() {
-        return null;
+        return attenderRepository.findAll();
     }
 
-    public void updateAttender(UpdateAttenderRequest request) {
-        return;
+    public void updateAttender(Integer attenderId, UpdateAttenderRequest request) {
+        AttenderEntity entity = attenderRepository.getOne(attenderId);
+
+        entity.setFullName(request.getFullName());
+        entity.setEmail(request.getEmail());
+        entity.setDateOfBirth(request.getDateOfBirth());
+        entity.setAvatar(request.getAvatar());
+        entity.setOrganization(request.getOrganization());
+        entity.setRole(request.getRole());
+        entity.setMonthsOfExperience(request.getMonthsOfExperience());
+        entity.setIsJoinExperienceSection(request.getIsJoinExperienceSection());
+
+        attenderRepository.save(entity);
     }
 
     public void deleteAttender(Integer attenderId) {

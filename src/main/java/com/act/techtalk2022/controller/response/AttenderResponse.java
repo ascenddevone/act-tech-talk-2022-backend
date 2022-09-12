@@ -1,19 +1,20 @@
-package com.act.techtalk2022.controller.request;
+package com.act.techtalk2022.controller.response;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdateAttenderRequest {
+public class AttenderResponse {
+
+    @JsonProperty("id")
+    private Integer id;
+
     @JsonProperty("full_name")
     private String fullName;
 
@@ -21,8 +22,7 @@ public class UpdateAttenderRequest {
     private String email;
 
     @JsonProperty("date_of_birth")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     @JsonProperty("avatar")
     private String avatar;
@@ -39,3 +39,4 @@ public class UpdateAttenderRequest {
     @JsonProperty("is_join_experience_section")
     private Boolean isJoinExperienceSection;
 }
+
