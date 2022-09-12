@@ -16,8 +16,6 @@
        </encoder>
     </appender>
 
-    <logger name="com.act.techtalk2022.channeladapter.controller.common.ExceptionHandlerController" level="OFF"/>
-
     <root level="INFO">
         <appender-ref ref="STDOUT" />
     </root>
