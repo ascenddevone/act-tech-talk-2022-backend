@@ -5,6 +5,9 @@ import com.act.techtalk2022.controller.request.UpdateAttenderRequest;
 import com.act.techtalk2022.controller.response.CreateAttenderResponse;
 import com.act.techtalk2022.controller.response.GeneralResponse;
 import com.act.techtalk2022.controller.response.GetAllAttenderResponse;
+import com.act.techtalk2022.factory.ResponseFactory;
+import com.act.techtalk2022.repository.enitiy.AttenderEntity;
+import com.act.techtalk2022.service.AttenderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Description;
@@ -23,6 +26,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class AttenderController {
 
+    private final AttenderService attenderService;
+
+    private final ResponseFactory responseFactory;
+
 
     @Description("Adds new an attender")
     @PostMapping(
@@ -33,9 +40,12 @@ public class AttenderController {
             @RequestBody CreateAttenderRequest request) {
         log.info("========== Start to add new an attender  ==========");
 
+        AttenderEntity entity = attenderService.createAttender(request);
         //Your code is here
         log.info("========== End to add new an attender  ==========");
-        return null;
+        return responseFactory.success(
+                new CreateAttenderResponse(entity.getId()),
+                CreateAttenderResponse.class);
     }
 
     @Description("Adds new attender")

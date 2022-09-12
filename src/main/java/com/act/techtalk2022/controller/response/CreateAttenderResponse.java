@@ -11,6 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateAttenderResponse {
-    @JsonProperty("field_name")
-    private String fieldName;
+    @JsonProperty("id")
+    private Integer id;
 }

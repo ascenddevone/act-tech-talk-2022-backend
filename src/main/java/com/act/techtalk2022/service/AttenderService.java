@@ -18,7 +18,17 @@ public class AttenderService {
     private final AttenderRepository attenderRepository;
 
     public AttenderEntity createAttender(CreateAttenderRequest request) {
-        return null;
+        AttenderEntity entity = new AttenderEntity();
+
+        entity.setAvatar(request.getAvatar());
+        entity.setEmail(request.getEmail());
+        entity.setDateOfBirth(request.getDateOfBirth());
+        entity.setFullName(request.getFullName());
+        entity.setIsJoinExperienceSection(request.getIsJoinExperienceSection());
+        entity.setMonthsOfExperience(request.getMonthsOfExperience());
+        entity.setOrganization(request.getOrganization());
+        entity.setRole(request.getRole());
+        return attenderRepository.save(entity);
     }
 
     public List<AttenderEntity> getAllAttenders() {
