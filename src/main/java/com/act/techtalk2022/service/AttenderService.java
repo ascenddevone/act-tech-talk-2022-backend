@@ -25,7 +25,7 @@ public class AttenderService {
         return null;
     }
 
-    public void updateAttender(UpdateAttenderRequest request) {
+    public void updateAttender(Integer attenderId, UpdateAttenderRequest request) {
         return;
     }
 

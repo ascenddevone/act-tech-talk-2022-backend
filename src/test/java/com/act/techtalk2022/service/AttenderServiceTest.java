@@ -52,9 +52,10 @@ public class AttenderServiceTest {
 
     @Test
     public void test__updateAttender__shouldReturnSuccess() {
+        Integer id = 99;
         UpdateAttenderRequest request = new UpdateAttenderRequest();
 
-        attenderService.updateAttender(request);
+        attenderService.updateAttender(id, request);
 
         verify(attenderRepository, times(1)).save(any());
     }

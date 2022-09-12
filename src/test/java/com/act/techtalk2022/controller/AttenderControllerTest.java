@@ -18,6 +18,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.times;
@@ -75,7 +76,7 @@ public class AttenderControllerTest {
 
         ResponseEntity<GeneralResponse<Object>> result = attenderController.updateAttender(id, request);
 
-        verify(attenderService, times(1)).updateAttender(any());
+        verify(attenderService, times(1)).updateAttender(anyInt(), any());
     }
 
 
