@@ -5,6 +5,8 @@ import com.act.techtalk2022.controller.request.UpdateAttenderRequest;
 import com.act.techtalk2022.controller.response.CreateAttenderResponse;
 import com.act.techtalk2022.controller.response.GeneralResponse;
 import com.act.techtalk2022.controller.response.GetAllAttenderResponse;
+import com.act.techtalk2022.factory.ResponseFactory;
+import com.act.techtalk2022.service.AttenderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Description;
@@ -22,6 +24,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Slf4j
 public class AttenderController {
+
+    private final AttenderService attenderService;
+
+    private final ResponseFactory responseFactory;
 
 
     @Description("Adds new an attender")

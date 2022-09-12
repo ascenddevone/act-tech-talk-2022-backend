@@ -3,6 +3,7 @@ package com.act.techtalk2022.repository.enitiy;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Past;
 import java.util.Date;
@@ -29,11 +31,13 @@ public class AttenderEntity {
     private Integer id;
 
     @Column(name = "full_name")
-    @NotEmpty
+    @NotBlank
+    @NonNull
     private String fullName;
 
     @Column(name = "email")
-    @NotEmpty
+    @NotBlank
+    @NonNull
     @Email
     private String email;
 
