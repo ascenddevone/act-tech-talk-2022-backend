@@ -51,6 +51,6 @@ public class AttenderService {
     }
 
     public void deleteAttender(Integer attenderId) {
-        return;
+        attenderRepository.deleteById(attenderId);
     }
 }

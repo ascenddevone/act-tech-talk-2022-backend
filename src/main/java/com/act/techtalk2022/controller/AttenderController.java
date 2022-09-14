@@ -105,10 +105,7 @@ public class AttenderController {
     }
 
     @Description("Update an attender")
-    @PutMapping(
-            value = "/attenders/{id}",
-            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PutMapping(value = "/attenders/{id}")
     public ResponseEntity<GeneralResponse<Object>> updateAttender(
             @PathVariable("id") Integer attenderId,
             @RequestBody UpdateAttenderRequest request) {
@@ -121,10 +118,7 @@ public class AttenderController {
     }
 
     @Description("Delete an attender")
-    @DeleteMapping(
-            value = "/attenders/{id}",
-            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @DeleteMapping(value = "/attenders/{id}")
     public ResponseEntity<GeneralResponse<Object>> deleteAttender(
             @PathVariable("id") Integer attenderId) {
         log.info("========== Start to delete an attender  ==========");
