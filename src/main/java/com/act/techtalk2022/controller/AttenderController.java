@@ -23,14 +23,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.persistence.Column;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +32,6 @@ import java.util.stream.Collectors;
 @Slf4j
 public class AttenderController {
 
-    private static final String SIMPLE_DATE_FORMAT = "yyyy-MM-dd";
     private final AttenderService attenderService;
 
     private final ResponseFactory responseFactory;
