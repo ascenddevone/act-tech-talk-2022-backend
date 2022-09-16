@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -20,37 +21,26 @@ public class AttenderService {
     public AttenderEntity createAttender(CreateAttenderRequest request) {
         AttenderEntity entity = new AttenderEntity();
 
-        entity.setAvatar(request.getAvatar());
-        entity.setEmail(request.getEmail());
-        entity.setDateOfBirth(request.getDateOfBirth());
-        entity.setFullName(request.getFullName());
-        entity.setIsJoinExperienceSection(request.getIsJoinExperienceSection());
-        entity.setMonthsOfExperience(request.getMonthsOfExperience());
-        entity.setOrganization(request.getOrganization());
-        entity.setRole(request.getRole());
+        //Your code is here
         return attenderRepository.save(entity);
     }
 
     public List<AttenderEntity> getAllAttenders() {
-        return attenderRepository.findAll();
+
+        //Your code is here
+        return Collections.emptyList();
     }
 
     public void updateAttender(Integer attenderId, UpdateAttenderRequest request) {
         AttenderEntity entity = attenderRepository.getOne(attenderId);
 
-        entity.setFullName(request.getFullName());
-        entity.setEmail(request.getEmail());
-        entity.setDateOfBirth(request.getDateOfBirth());
-        entity.setAvatar(request.getAvatar());
-        entity.setOrganization(request.getOrganization());
-        entity.setRole(request.getRole());
-        entity.setMonthsOfExperience(request.getMonthsOfExperience());
-        entity.setIsJoinExperienceSection(request.getIsJoinExperienceSection());
+        //Your code is here
 
         attenderRepository.save(entity);
     }
 
     public void deleteAttender(Integer attenderId) {
-        attenderRepository.deleteById(attenderId);
+        //Your code is here
+        return;
     }
 }

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -22,7 +24,7 @@ public class AttenderResponse {
     private String email;
 
     @JsonProperty("date_of_birth")
-    private String dateOfBirth;
+    private Date dateOfBirth;
 
     @JsonProperty("avatar")
     private String avatar;
