@@ -1,25 +1,11 @@
 package com.act.techtalk2022.service;
 
 
-import com.act.techtalk2022.controller.request.CreateAttenderRequest;
-import com.act.techtalk2022.controller.request.UpdateAttenderRequest;
 import com.act.techtalk2022.repository.AttenderRepository;
-import com.act.techtalk2022.repository.enitiy.AttenderEntity;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.List;
-
-import static org.junit.Assert.assertNotNull;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AttenderServiceTest {

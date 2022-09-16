@@ -1,29 +1,12 @@
 package com.act.techtalk2022.controller;
 
 
-import com.act.techtalk2022.controller.request.CreateAttenderRequest;
-import com.act.techtalk2022.controller.request.UpdateAttenderRequest;
-import com.act.techtalk2022.controller.response.CreateAttenderResponse;
-import com.act.techtalk2022.controller.response.GeneralResponse;
-import com.act.techtalk2022.controller.response.GetAllAttenderResponse;
-import com.act.techtalk2022.exception.CommonException;
 import com.act.techtalk2022.factory.ResponseFactory;
 import com.act.techtalk2022.service.AttenderService;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AttenderControllerTest {
