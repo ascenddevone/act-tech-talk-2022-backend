@@ -2,6 +2,7 @@ package com.act.techtalk2022.service;
 
 
 import com.act.techtalk2022.repository.AttenderRepository;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -20,6 +21,10 @@ public class AttenderServiceTest {
 
     }
 
+    @Test
+    public void dummyTest() {
+        //This is dummy test
+    }
 //    @Test
 //    public void test__createAttender__shouldReturnSuccess() {
 //        CreateAttenderRequest request = new CreateAttenderRequest();
