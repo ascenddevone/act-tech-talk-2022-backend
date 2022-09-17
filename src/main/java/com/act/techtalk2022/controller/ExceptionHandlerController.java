@@ -45,6 +45,6 @@ public class ExceptionHandlerController {
 
         log.error("handleCommonException", error);
 
-        return responseFactory.error(HttpStatus.BAD_REQUEST, error.getCode(), error.getMessage());
+        return responseFactory.error(error.getStatus(), error.getCode(), error.getMessage());
     }
 }
