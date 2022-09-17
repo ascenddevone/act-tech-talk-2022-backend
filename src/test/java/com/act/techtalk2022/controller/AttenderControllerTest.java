@@ -3,6 +3,7 @@ package com.act.techtalk2022.controller;
 
 import com.act.techtalk2022.factory.ResponseFactory;
 import com.act.techtalk2022.service.AttenderService;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -22,6 +23,11 @@ public class AttenderControllerTest {
 
     @Mock
     private ResponseFactory responseFactory;
+
+    @Test
+    public void dummyTest() {
+        //This is dummy test
+    }
 
 //
 //    @Before
