@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -20,7 +21,14 @@ public class AttenderService {
 
     public AttenderEntity createAttender(CreateAttenderRequest request) {
         AttenderEntity entity = new AttenderEntity();
-
+        entity.setAvatar(request.getAvatar());
+        entity.setEmail(request.getEmail());
+        entity.setDateOfBirth(request.getDateOfBirth());
+        entity.setIsJoinExperienceSection(request.getIsJoinExperienceSection());
+        entity.setRole(request.getRole());
+        entity.setOrganization(request.getOrganization());
+        entity.setMonthsOfExperience(request.getMonthsOfExperience());
+        entity.setFullName(request.getFullName());
         //Your code is here
         return attenderRepository.save(entity);
     }
@@ -28,19 +36,32 @@ public class AttenderService {
     public List<AttenderEntity> getAllAttenders() {
 
         //Your code is here
-        return Collections.emptyList();
+        List<AttenderEntity> list = attenderRepository.findAll();
+        return list;
+
     }
 
     public void updateAttender(Integer attenderId, UpdateAttenderRequest request) {
         AttenderEntity entity = attenderRepository.getOne(attenderId);
 
-        //Your code is here
+        entity.setId(attenderId);
+        entity.setAvatar(request.getAvatar());
+        entity.setEmail(request.getEmail());
+        entity.setDateOfBirth(request.getDateOfBirth());
+        entity.setIsJoinExperienceSection(request.getIsJoinExperienceSection());
+        entity.setRole(request.getRole());
+        entity.setOrganization(request.getOrganization());
+        entity.setMonthsOfExperience(request.getMonthsOfExperience());
+        entity.setFullName(request.getFullName());
 
         attenderRepository.save(entity);
     }
 
     public void deleteAttender(Integer attenderId) {
-        //Your code is here
-        return;
+        attenderRepository.deleteById(attenderId);
+    }
+
+    public Optional<AttenderEntity> findById(Integer attenderId) {
+        return attenderRepository.findById(attenderId);
     }
 }
