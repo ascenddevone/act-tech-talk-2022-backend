@@ -66,10 +66,7 @@ public class AttenderController {
 
     //region Get all attender
     @Description("Get all attender")
-    @GetMapping(
-            value = "/attenders",
-            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/attenders")
     public ResponseEntity<GeneralResponse<GetAllAttenderResponse>> getAllAttenders() {
         log.info("========== Start to get all attender  ==========");
 
