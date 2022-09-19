@@ -6,18 +6,15 @@ import com.act.techtalk2022.controller.response.AttenderResponse;
 import com.act.techtalk2022.controller.response.CreateAttenderResponse;
 import com.act.techtalk2022.controller.response.GeneralResponse;
 import com.act.techtalk2022.controller.response.GetAllAttenderResponse;
-import com.act.techtalk2022.exception.CommonException;
 import com.act.techtalk2022.factory.ResponseFactory;
 import com.act.techtalk2022.repository.enitiy.AttenderEntity;
 import com.act.techtalk2022.service.AttenderService;
-import com.act.techtalk2022.util.CommonUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Description;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Instant;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -56,7 +52,7 @@ public class AttenderController {
             @RequestBody CreateAttenderRequest request) {
         log.info("========== Start to add new an attender  ==========");
 
-        validateCreateAttender(request);
+        attenderService.validateCreateAttender(request);
 
         AttenderEntity entity = attenderService.createAttender(request);
 
@@ -64,29 +60,6 @@ public class AttenderController {
         return responseFactory.success(
                 new CreateAttenderResponse(entity.getId()),
                 CreateAttenderResponse.class);
-    }
-
-    private void validateCreateAttender(CreateAttenderRequest request) {
-        if (null == request.getFullName() || request.getFullName().isEmpty()) {
-            log.error("The full name cannot be blank");
-
-            throw new CommonException(HttpStatus.BAD_REQUEST, "bad_request", "The full name cannot be blank");
-        }
-
-        if (null == request.getEmail() || request.getEmail().isEmpty()) {
-            log.error("The email cannot be blank or validate");
-
-            throw new CommonException(HttpStatus.BAD_REQUEST, "bad_request", "The email cannot be blank or validate");
-        }
-
-        if (null == request.getDateOfBirth()) {
-
-            log.error("The date of birth cannot be blank or validate");
-
-            throw new CommonException(HttpStatus.BAD_REQUEST, "bad_request", "The date of birth cannot be blank");
-
-        }
-        log.info("== End to validate user==");
     }
 
     //endregion Adds attender
@@ -136,42 +109,14 @@ public class AttenderController {
             @RequestBody UpdateAttenderRequest request) {
         log.info("========== Start to update an attender  ==========");
 
-        Optional<AttenderEntity> entity = attenderService.findById(attenderId);
+        attenderService.validateAttender(attenderId);
+        attenderService.validateUpdateAttender(request);
 
-        if(!entity.isPresent()) {
-            log.error("The attender is not found");
-            throw new CommonException(HttpStatus.NOT_FOUND, "not_found", "The attender is not found");
-        }
-
-        validateUpdateAttender(request);
         attenderService.updateAttender(attenderId, request);
 
         log.info("========== End to update an attender  ==========");
         return responseFactory.success();
     }
-
-    private void validateUpdateAttender(UpdateAttenderRequest request) {
-        if (null == request.getFullName() || request.getFullName().isEmpty()) {
-            log.error("The full name cannot be blank");
-
-            throw new CommonException(HttpStatus.BAD_REQUEST, "bad_request", "The full name cannot be blank");
-        }
-
-        if (null == request.getEmail() || request.getEmail().isEmpty()) {
-            log.error("The email cannot be blank or validate");
-
-            throw new CommonException(HttpStatus.BAD_REQUEST, "bad_request", "The email cannot be blank or validate");
-        }
-
-        if (null == request.getDateOfBirth()) {
-
-            log.error("The date of birth cannot be blank or validate");
-
-            throw new CommonException(HttpStatus.BAD_REQUEST, "bad_request", "The date of birth cannot be blank");
-
-        }
-    }
-
     //endregion Update an attender
 
     //region Delete an attender
@@ -181,21 +126,12 @@ public class AttenderController {
             @PathVariable("id") Integer attenderId) {
         log.info("========== Start to delete an attender  ==========");
 
-        Optional<AttenderEntity> entity = attenderService.findById(attenderId);
-
-        if(!entity.isPresent()) {
-            log.error("The attender is not found");
-            throw new CommonException(HttpStatus.NOT_FOUND, "not_found", "The attender is not found");
-        }
-
+        attenderService.validateAttender(attenderId);
 
         attenderService.deleteAttender(attenderId);
 
         log.info("========== End to delete an attender  ==========");
         return responseFactory.success();
-    }
-
-    private void validateDeleteAttender(Integer attenderId) {
     }
     //endregion Delete an attender
 }
